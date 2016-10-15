@@ -15,8 +15,8 @@
         </tr>
       </thead>
     <tbody>
-      <% cart.each do |product_id, details| %>
-        <%= render 'item', product_id: product_id, details: details %>
+      <% @line_items.each do |item| %>
+        <%= render 'item', item: item%>
       <% end %>
     </tbody>
   </table>

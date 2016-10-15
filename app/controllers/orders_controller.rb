@@ -2,15 +2,20 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @line_items = LineItem.find_by_sql("SELECT * FROM line_items INNER JOIN orders ON orders.id = line_items.order_id WHERE orders.id = #{@order.id}")
   end
+
+
 
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
 
     if order.valid?
-      empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      # empty_cart!
+
+      UserMailer.order_email(User.find_by_id(session[:user_id]), order).deliver_now
+      redirect_to order
     else
       redirect_to cart_path, error: order.errors.full_messages.first
     end
