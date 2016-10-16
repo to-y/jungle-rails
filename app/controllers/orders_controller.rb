@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 
+
   def show
     @order = Order.find(params[:id])
     @line_items = LineItem.find_by_sql("SELECT * FROM line_items INNER JOIN orders ON orders.id = line_items.order_id WHERE orders.id = #{@order.id}")
@@ -12,8 +13,7 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
-      # empty_cart!
-
+      empty_cart!
       UserMailer.order_email(User.find_by_id(session[:user_id]), order).deliver_now
       redirect_to order
     else

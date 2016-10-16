@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
 
+helper :all
+
   def show
   end
 

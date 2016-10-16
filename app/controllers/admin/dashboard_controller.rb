@@ -1,5 +1,6 @@
 class Admin::DashboardController < ApplicationController
-   http_basic_authenticate_with name: "dhh", password: "secret", except: :index
+   http_basic_authenticate_with name: "Jungle", password: "book", except: :index
+
   def show
   end
 end

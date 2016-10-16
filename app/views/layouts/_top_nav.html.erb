@@ -39,9 +39,15 @@
           </ul>
         </li>
         <li>
-          <%= link_to cart_path do %>
+        <% if cart.blank? %>
+         <%= link_to :root do %>
+           <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
+           <% end %>
+        <% else %>
+         <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
+        <% end %>
         </li>
         <% if current_user %>
         Signed in as <%= current_user.name %>
@@ -61,4 +67,5 @@
       </ul>
     </div>
   </div>
+
 </nav>
