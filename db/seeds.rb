@@ -129,5 +129,31 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+Review.create({
+  product_id: 10,
+  user_id: 1,
+  description: 'THE BEST SLEEPING BED EVAH',
+  rating: 5
+})
 
+Review.create({
+  product_id: 10,
+  user_id: 1,
+  description: 'THE BEST ',
+  rating: 4
+})
+
+Review.create({
+  product_id: 10,
+  user_id: 1,
+  description: 'THE  EVAH',
+  rating: 3
+})
+
+Review.create({
+  product_id: 10,
+  user_id: 1,
+  description: 'T NG BED EVAH',
+  rating: 6
+})
 puts "DONE!"
