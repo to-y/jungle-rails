@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+  #   validates :name, presence: true
+  #   validates :price, presence: true
+  #   validates :quantity, presence: true
+  #   validates :category, presence: true
 
   before(:each) do
     @product = Product.new(
@@ -34,8 +38,4 @@ RSpec.describe Product, type: :model do
       expect(@product).to be_invalid
     end
   end
-  #   validates :name, presence: true
-  #   validates :price, presence: true
-  #   validates :quantity, presence: true
-  #   validates :category, presence: true
 end
