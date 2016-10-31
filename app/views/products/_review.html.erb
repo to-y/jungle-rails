@@ -1,15 +1,21 @@
 
 <% if product = Product.find_by(id: review.product_id) %>
+<div class="review panel panel-default">
+  <div class="panel-heading">
+    By User ID: <%= review.user_id %>
+  </div>
+  <div class="panel-body">
+    <div>
+      Rating: <%= review.rating %>
+    </div>
+    <div>
+      Comment: <%= review.description %>
+    </div>
+  </div>
 
-<div>
-  User ID: <%= review.user_id %>
+  <% if current_user && current_user.id == review.user_id %>
+    <%= link_to fa_icon('trash'), [review], method: :delete, data: { confirm: "Delete Review?" } %>
+  <% end %>
 </div>
-<div>
-  Rating: <%= review.rating %>
-</div>
-<div>
-  Comment: <%= review.description %>
-</div>
-<br>
 
 <% end %>

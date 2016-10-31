@@ -36,6 +36,9 @@ gem 'rmagick'
 gem 'stripe'
 gem 'faker'
 gem 'receipts'
+gem 'capybara'
+gem 'poltergeist'
+
 
 
 # Use Capistrano for deployment

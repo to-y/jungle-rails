@@ -12,7 +12,7 @@ RSpec.describe Product, type: :model do
       price_cents: 12321,
       quantity: 1
     )
-    byebug
+
     @product.category = Category.new
 
   end
